@@ -1,0 +1,227 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>midori </title>
+</head>
+<body>
+
+
+  
+  
+  
+  <style>
+  
+#timedate {
+  font: small-caps lighter 33px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align:left;
+  width: 100%;
+  margin: 0px auto;
+  color:#black;
+  border-left: 0px solid #d3d3d3;
+  padding: 0px;
+}
+  .container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 5px;
+  background-color: #f5f5f5;
+  padding: 5px;
+}
+.container > div {
+  background-color: #f0f8ff ;
+  padding: 10px;
+}
+.container > div.header {
+  grid-area: header;
+  text-align: center;
+}
+.container > div.menu {
+  grid-area: menu;
+}
+.container > div.content {
+  grid-area: content;
+}
+.container > div.footer {
+  grid-area: footer;
+}
+:root {
+  --bg-color: #fff;
+  --margin-line-color: #fffff0;
+  --ruling-line-color: #ffff;
+}
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  --dot-bg: white;
+  --dot-color: black;
+  --dot-size: 1px;
+  --dot-space: 22px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+}
+  
+div {
+  background-color: #fffff0;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #fffff0;
+}
+
+</style>
+
+
+<div class="container">
+  <div class="header">
+  
+<table>  
+<tr> <td>  
+<a href="https://ibb.co/Jjr5Nq8M"><img src="https://i.ibb.co/Jjr5Nq8M/Screenshot-2025-05-30-114549.png" alt="Screenshot-2025-05-30-114549" border="0"></a> Tian Fan  </td>
+
+<td>
+
+<body onLoad="initClock()">
+
+  <body onLoad="initClock()">
+
+  <div id="timedate">
+    <a id="mon">January</a>
+    <a id="d">1</a>,
+    <a id="y">0</a><br />
+    <a id="h">12</a> :
+    <a id="m">00</a>:
+    <a id="s">00</a>:
+    
+  </div>
+
+</table>
+
+<script>
+  // START CLOCK SCRIPT
+
+Number.prototype.pad = function(n) {
+  for (var r = this.toString(); r.length < n; r = 0 + r);
+  return r;
+};
+
+function updateClock() {
+  var now = new Date();
+  var 
+    sec = now.getSeconds(),
+    min = now.getMinutes(),
+    hou = now.getHours(),
+    mo = now.getMonth(),
+    dy = now.getDate(),
+    yr = now.getFullYear();
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var tags = ["mon", "d", "y", "h", "m", "s"],
+    corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+  for (var i = 0; i < tags.length; i++)
+    document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+}
+
+function initClock() {
+  updateClock();
+  window.setInterval("updateClock()", 1);
+}
+
+// END CLOCK SCRIPT
+
+var d = document;
+
+// not using this at the moment but might do later for graceful degradation...
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
+d.addEventListener('DOMContentLoaded', function(){
+
+  var savedContent = localStorage.getItem("notepadcontent");
+  if(savedContent != null){
+    d.getElementById("notepad").value = savedContent;
+  }
+ 
+ 
+ d.getElementById("notepad").onkeyup = function(){
+  var data = d.getElementById("notepad").value;  localStorage.setItem("notepadcontent", data);
+  }
+});
+</script>
+
+
+</div>
+ 
+  
+  
+  <div class="menu"> <h10> Website directory 
+
+
+<p> Month calendar <a href="https://tiancalendar.github.io/month365"> calendar monthly </a></p>
+
+<p>Landscape and Note dotgrid paper <a href="https://tiancalendar.github.io/grid365"> Dot grid paper</a></p>
+<p> Grocery paper <a href="https://tiancalendar2.github.io/list1"> grocery calculator </a></p>
+
+<p> Midori paper <a href="https://tiancalendar2.github.io/11midori-"> Midori calendar </a></p>
+
+<p> Midori calendar <a href="https://tiancalendar.github.io/calc365"> calendar blue </a></p>
+
+<p> Picture 9 <a href="https://tiancalendar.github.io/picture9/"> photo memories 9 table </a></p>
+
+
+</h10>
+
+
+
+
+</div>
+  <div class="content">
+  <div class="ruled-paper" role="main">
+  <div class="ruled-paper-header"></div>
+<div class="ruled-paper-body" contenteditable="true">
+  <p id="demo"></p>
+  
+  <h3> Productive. Web developer. 2020 - continues. </h3>
+<h7> I can program websites on Github. 
+I make webpages in Github: to assist with Month calendar, Dot grid drawings, grocery calculator, Calendar scheduler, and Picture memories recorder. I program online tools to aid people being helpful.
+
+<h3> Skills qualifications </h3>
+<h7> I make tools webpages to assist people globally. </h7>
+<h7> I have ability to read, write English and programming skills. </h7>
+<h7> I have passion to work and solve problems in real time. I have time to dedicate to continuous learning, relax and improvements. I can problem solve. Minecraft Architect</h7>
+
+<h3> Education </h3>
+<h7>Henry Wisewood high School. Bow Valley College (not graduate). </h7>
+
+</h7>
+
+  <div class="footer"><h5>Identification for resume available on request in person. </h5></div>
+</div>
+
+
+    </html>
+
+
+
+</body>
+</html>
+
+
+
+</body>
+</html>
